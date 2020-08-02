@@ -1,0 +1,27 @@
+{
+  "name": "liliya",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "bin": {
+    "liliya": "./bin/liliya.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingyuefeng/liliya.git"
+  },
+  "author": "xingyuefeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xingyuefeng/liliya/issues"
+  },
+  "homepage": "https://github.com/xingyuefeng/liliya#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "signale": "^1.4.0",
+    "yargs-parser": "^18.1.3"
+  }
+}
