@@ -9,7 +9,7 @@ const signale = require('signale');
 // print version and @local
 const args = yParser(process.argv.slice(2));
 
-console.log(args)
+// console.log(args)
 
 function stripEmptyKeys(obj) {
   Object.keys(obj).forEach((key) => {
