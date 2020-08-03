@@ -42,4 +42,14 @@ function build() {
     process.exit(1);
   }
 
+  require('../lib/build').default({
+    cwd: args.root || process.cwd(),
+    watch: args.w || args.watch,
+    buildArgs
+  }).catch(e => {
+    signale.error(e);
+    process.exit(1);
+  });
+
+
 }

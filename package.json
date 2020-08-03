@@ -7,7 +7,7 @@
     "liliya": "./bin/liliya.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "umi-tools build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,11 @@
   "homepage": "https://github.com/xingyuefeng/liliya#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "lodash": "^4.17.19",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.23.0",
     "signale": "^1.4.0",
+    "umi-tools": "^0.4.0",
     "yargs-parser": "^18.1.3"
   }
 }
