@@ -7,5 +7,5 @@ export function getExistFile({ cwd, files, returnRelative }) {
     if (existsSync(absFilePath)) {
       return returnRelative ? file : absFilePath;
     }
-  } 
+  }
 }

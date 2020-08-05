@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/xingyuefeng/liliya#readme",
   "dependencies": {
+    "ajv": "^6.12.3",
     "chalk": "^4.1.0",
     "lodash": "^4.17.19",
     "rimraf": "^3.0.2",
     "rollup": "^2.23.0",
     "signale": "^1.4.0",
+    "slash2": "^2.0.0",
     "umi-tools": "^0.4.0",
     "yargs-parser": "^18.1.3"
   }
