@@ -9,10 +9,10 @@ function testDefault(obj) {
 }
 
 export const CONFIG_FILES = [
-  ".fatherrc.js",
-  ".fatherrc.jsx",
-  ".fatherrc.ts",
-  ".fatherrc.tsx",
+  ".liliya.js",
+  ".liliya.jsx",
+  ".liliya.ts",
+  ".liliya.tsx",
 ];
 
 export default function({ cwd }) {

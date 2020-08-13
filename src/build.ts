@@ -45,13 +45,19 @@ export function getBundleOpts(options: IOpts): IBundleOptions[] {
 
 }
 
-export default async function build(options: IOpts) {
+
+
+export async function build(options: IOpts) {
   const { cwd, watch } = options;
 
   const log = console.log;
 
   // 获取配置列表 返回数组对象
   const bundleOptsArray = getBundleOpts(options);
+
+
+  console.log(bundleOptsArray)
+
   for (const bundleOpts of bundleOptsArray) {
 
     log(chalk.blue(`清除文件...`));
@@ -78,4 +84,9 @@ export default async function build(options: IOpts) {
 
   }
 
+}
+
+export default async function(opts: IOpts) {
+  console.log(1)
+  await build(opts);
 }
