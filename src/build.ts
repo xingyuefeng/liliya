@@ -6,6 +6,7 @@ import { IOpts, IBundleOptions, IBundleTypeOutput, ICjs, IEsm } from './types';
 import { getExistFile } from './utils';
 import getUserConfig from './getUserConfig'
 import rollup from './rollup';
+import babel from './babel';
 
 export function getBundleOpts(options: IOpts): IBundleOptions[] {
   const { cwd, buildArgs = {}, rootConfig = {} } = options;
@@ -48,7 +49,7 @@ export function getBundleOpts(options: IOpts): IBundleOptions[] {
 
 
 export async function build(options: IOpts) {
-  const { cwd, watch } = options;
+  const { cwd, watch, rootPath } = options;
 
   const log = console.log;
 
@@ -56,7 +57,6 @@ export async function build(options: IOpts) {
   const bundleOptsArray = getBundleOpts(options);
 
 
-  console.log(bundleOptsArray)
 
   for (const bundleOpts of bundleOptsArray) {
 
@@ -68,7 +68,7 @@ export async function build(options: IOpts) {
       log(`Build esm with ${esm.type}`);
       const importLibToEs = esm && esm.importLibToEs;
       if (esm && esm.type === 'babel') {
-        // await babel({ cwd, rootPath, watch, type: 'esm', importLibToEs, log, bundleOpts });
+        await babel({ cwd, rootPath, watch, type: 'esm', importLibToEs, log, bundleOpts });
       } else {
         await rollup({
           cwd,
@@ -82,7 +82,27 @@ export async function build(options: IOpts) {
       }
     }
 
+     // Build cjs
+  if (bundleOpts.cjs) {
+    const cjs = bundleOpts.cjs as IBundleTypeOutput;
+    log(`Build cjs with ${cjs.type}`);
+    if (cjs.type === 'babel') {
+      await babel({ cwd, rootPath, watch, type: 'cjs', log, bundleOpts });
+    } else {
+      await rollup({
+        cwd,
+        log,
+        type: 'cjs',
+        entry: bundleOpts.entry,
+        watch,
+        bundleOpts,
+      });
+    }
   }
+
+  }
+
+ 
 
 }
 
